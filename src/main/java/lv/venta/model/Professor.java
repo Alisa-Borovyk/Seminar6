@@ -1,4 +1,4 @@
-package model;
+package lv.venta.model;
 
 import java.util.Collection;
 
@@ -6,82 +6,94 @@ import java.util.Collection;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-@Table(name = "StudentTable")
+
+@Table(name = "ProfessorTable")
 @Entity
-public class Student {
+public class Professor {
 	
-	@Column(name = "sid")
+	
+	@Column(name = "pid")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int sid;
+	private int pId;
 	
-
+	
 	@Column(name = "Name")
-@NotNull
-@NotEmpty
-@Pattern(regexp = "[A-Z]{1}[a-z]{2,40}", message = "Name must start with a capital letter and be between 3 and 40 characters long")
+	@NotNull
+	@NotEmpty
+	@Pattern(regexp = "[A-Z]{1}[a-z]{2,40}", message = "Name must start with a capital letter and be between 3 and 40 characters long")
 	private String name;
 	
-
 	@Column(name = "Surname")
 	@NotNull
 	@NotEmpty
 	@Pattern(regexp = "[A-Z]{1}[a-z]{2,40}", message = "Name must start with a capital letter and be between 3 and 40 characters long")
 	private String surname;
-
 	
-	//@ManyToMany
-	@OneToMany(mappedBy = "student")
-	private Collection<Grade> courses;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "Degree")
+	@NotNull
+	private Degree degree;
+	
+	
+	@OneToMany(mappedBy = "professor")
+	private Collection<Course> courses;
+	
 
-	public int getSid() {
-		return sid;
+	public int getpId() {
+		return pId;
 	}
-
-
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 	public String getSurname() {
 		return surname;
 	}
 
-
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 
-	//constructors
-	
-	public Student() {}
-	
-	public Student(String name, String surname) {
-	setName(name);
-	setSurname(surname);
-		
+	public Degree getDegree() {
+		return degree;
 	}
 
-	
-	//toString
-	public String toString() {
-		return "Student [Sid=" + sid + ", name=" + name + ", surname=" + surname + "]";
+	public void setDegree(Degree degree) {
+		this.degree = degree;
 	}
+	
+	
+	//constructor
+
+	public Professor() {}
+	
+	public Professor(String name, String surname, Degree degree) {
+		this.name = name;
+		this.surname = surname;
+		this.degree = degree;
+	}
+	
+//toString
+	public String toString() {
+		return "Professor [pId=" + pId + ", name=" + name + ", surname=" + surname + ", degree=" + degree + "]";
+	}
+	
 }

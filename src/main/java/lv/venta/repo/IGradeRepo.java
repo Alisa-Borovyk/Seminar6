@@ -1,9 +1,16 @@
 package lv.venta.repo;
 
+import java.util.ArrayList;
+
 import org.springframework.data.repository.CrudRepository;
 
-import model.Grade;
+import lv.venta.model.Grade;
 
 public interface IGradeRepo extends CrudRepository<Grade, Integer> {
+	
+
+	ArrayList<Grade> findByStudentSid(int id);
+
+	ArrayList<Grade> FindByCourseTitle(String title);
 
 }

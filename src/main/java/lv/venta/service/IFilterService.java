@@ -1,9 +1,9 @@
-package lv.venta.Service;
+package lv.venta.service;
 
 import java.util.ArrayList;
 
-import model.Course;
-import model.Grade;
+import lv.venta.model.Course;
+import lv.venta.model.Grade;
 
 public interface IFilterService {
 	

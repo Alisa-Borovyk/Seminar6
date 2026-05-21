@@ -7,15 +7,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import lv.venta.model.Course;
+import lv.venta.model.Degree;
+import lv.venta.model.Grade;
+import lv.venta.model.Professor;
+import lv.venta.model.Student;
 import lv.venta.repo.ICourseRepo;
 import lv.venta.repo.IGradeRepo;
 import lv.venta.repo.IProfessorRepo;
 import lv.venta.repo.IStudentRepo;
-import model.Course;
-import model.Degree;
-import model.Grade;
-import model.Professor;
-import model.Student;
 
 @SpringBootApplication
 public class Seminar6Application {

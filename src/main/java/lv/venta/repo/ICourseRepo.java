@@ -2,9 +2,11 @@ package lv.venta.repo;
 
 import org.springframework.data.repository.CrudRepository;
 
-import model.Course;
+import lv.venta.model.Course;
 
 public interface ICourseRepo extends CrudRepository<Course, Integer> {
+
+	boolean existsByTtile(String title);
 	
 	
 

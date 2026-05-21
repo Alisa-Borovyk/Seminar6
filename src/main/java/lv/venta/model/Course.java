@@ -1,4 +1,4 @@
-package model;
+package lv.venta.model;
 
 
 

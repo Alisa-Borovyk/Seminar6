@@ -33,6 +33,47 @@ public class Grade {
 	@ManyToOne
 	@JoinColumn(name = "cid")
 	private Student student;
+
+	public int getGradeValue() {
+		return gradeValue;
+	}
+
+	public void setGradeValue(int gradeValue) {
+		this.gradeValue = gradeValue;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+	
+	
+	public Grade() {
+		
+	}
+	
+	public Grade(Student student, Course course, int gradeValue) {
+		this.student = student;
+		this.course = course;
+		this.gradeValue = gradeValue;
+	}
+
+	public String toString() {
+		return "Grade [gId=" + gId + ", gradeValue=" + gradeValue + "(" + student.getName() + " " + student.getSurname() + " - " + course.getTitle() + 
+				")]";
+		
+}
 	
 
 }

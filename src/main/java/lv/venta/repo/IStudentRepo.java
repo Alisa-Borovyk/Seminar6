@@ -1,5 +1,11 @@
 package lv.venta.repo;
 
-public interface IStudentRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import model.Student;
+
+public interface IStudentRepo extends CrudRepository<Student, Integer> {
+	
+	
 
 }

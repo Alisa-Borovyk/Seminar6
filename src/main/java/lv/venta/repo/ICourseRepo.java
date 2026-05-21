@@ -1,5 +1,11 @@
 package lv.venta.repo;
 
-public interface ICourseRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import model.Course;
+
+public interface ICourseRepo extends CrudRepository<Course, Integer> {
+	
+	
 
 }

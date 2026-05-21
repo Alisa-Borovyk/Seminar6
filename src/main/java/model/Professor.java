@@ -2,12 +2,15 @@ package model;
 
 import java.util.Collection;
 
-import org.springframework.data.annotation.Id;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
@@ -38,6 +41,8 @@ public class Professor {
 	@Pattern(regexp = "[A-Z]{1}[a-z]{2,40}", message = "Name must start with a capital letter and be between 3 and 40 characters long")
 	private String surname;
 	
+	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "Degree")
 	@NotNull
 	private Degree degree;

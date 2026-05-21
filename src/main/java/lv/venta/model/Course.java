@@ -2,6 +2,10 @@ package lv.venta.model;
 
 
 
+import java.util.Collection;
+
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -31,7 +36,7 @@ public class Course {
 	@Column(name = "Title")
 	@NotNull
 	@NotEmpty
-	@Pattern(regexp = "[A-Za-z]{3, 50}", message = "Title must start with a capital letter and be between 3 and 40 characters long")
+	@Pattern(regexp = "[A-Za-z ]{3,50}", message = "Title must start with a capital letter and be between 3 and 40 characters long")
 	private String title;
 
 	@Column(name = "CreditPoints")
@@ -43,9 +48,8 @@ public class Course {
 	@JoinColumn(name = "pid")
 	private Professor professor;
 	
-	@ManyToMany
-	@JoinColumn(name = "gid")
-	private Grade grade;
+	@OneToMany(mappedBy = "course")
+	private Collection<Grade> grades;
 
 	//getters and setters	
 	public int getCid() {

@@ -26,7 +26,7 @@ public class Grade {
 	private int gradeValue;
 	
 	@ManyToOne
-	@JoinColumn(name = "pid")
+	@JoinColumn(name = "cid")
 	private Course course;
 	
 	@ManyToOne
@@ -58,6 +58,10 @@ public class Grade {
 	}
 	
 	
+	public int getgId() {
+		return gId;
+	}
+
 	public Grade() {
 		
 	}

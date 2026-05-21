@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>Grade</h1>
+
+
+<table>
+   
+    <tr th:each="temP : ${box}">
+
+        <td th:text="${temP.getgId()}"></td>
+        <td th:text="${temP.gradeValue}"></td>
+        <td th:text="${temP.course.title}"></td>
+        <td th:text="${temP.student.name}"></td>
+        <td th:text="${temP.student.surname}"></td>
+        
+        
+    </tr>
+    
+    </table>
+
+</body>
+
+</html>

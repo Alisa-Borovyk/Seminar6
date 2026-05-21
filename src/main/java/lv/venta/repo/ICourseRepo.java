@@ -6,7 +6,7 @@ import lv.venta.model.Course;
 
 public interface ICourseRepo extends CrudRepository<Course, Integer> {
 
-	boolean existsByTtile(String title);
+	boolean existsByTitle(String title);
 	
 	
 

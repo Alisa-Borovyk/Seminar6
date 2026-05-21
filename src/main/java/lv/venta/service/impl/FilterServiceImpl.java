@@ -18,8 +18,10 @@ public class FilterServiceImpl implements IFilterService {
 	@Autowired
 	private IStudentRepo studRepo;
 	
+	@Autowired
 	private IGradeRepo gradeRepo;
 	
+	@Autowired
 	private ICourseRepo courseRepo;
 	
 
@@ -44,7 +46,7 @@ public class FilterServiceImpl implements IFilterService {
 			throw new Exception ("NO linked grades to student with id " + id);
 		}
 		
-		return null;
+		return resultFromDB;
 	}
 
 	@Override
@@ -55,7 +57,7 @@ public class FilterServiceImpl implements IFilterService {
 			throw new Exception ("Title can`t be empty and null");
 		}
 		
-		if (!courseRepo.existsByTtile(title)) {
+		if (!courseRepo.existsByTitle(title)) {
 			throw new Exception ("Course" + title + "doesn`t exist");
 		}
 		
@@ -65,15 +67,16 @@ public class FilterServiceImpl implements IFilterService {
 			
 		}
 		
-		ArrayList <Grade> resultFromDB = gradeRepo.FindByCourseTitle(title);
+		ArrayList <Grade> resultFromDB = gradeRepo.findByCourseTitle(title);
 		
 		if(resultFromDB.isEmpty()) {
 			throw new Exception ("No linked grades to course");
 		}
 		
-		return null;
+		return resultFromDB;
 	}
 
+	//finish at home
 	@Override
 	public ArrayList<Course> filterCourseByProfessorId(int id) throws Exception {
 		// TODO Auto-generated method stub
